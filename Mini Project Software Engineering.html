@@ -1,0 +1,97 @@
+<html>
+<head>
+    <style>
+        /* Add your CSS code here to style the webpage */
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </style>
+    <script>
+        // Add your JavaScript code here to validate the form inputs
+        function validateForm() {
+            // Get the form elements by their id
+            var name = document.getElementById("name");
+            var email = document.getElementById("email");
+            var phone = document.getElementById("phone");
+            var interest = document.getElementById("interest");
+            var message = document.getElementById("message");
+
+            // Check if the name field is empty or not
+            if (name.value == "") {
+                alert("Please enter your name");
+                return false;
+            }
+
+            // Check if the email field is valid or not
+            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailRegex.test(email.value)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+
+            // Check if the phone field is valid or not
+            var phoneRegex = /^[0-9]{10,12}$/;
+            if (!phoneRegex.test(phone.value)) {
+                alert("Please enter a valid phone number");
+                return false;
+            }
+
+            // Check if the interest field is selected or not
+            if (interest.value == "") {
+                alert("Please select your area of interest");
+                return false;
+            }
+
+            // Check if the message field is empty or not
+            if (message.value == "") {
+                alert("Please enter your message");
+                return false;
+            }
+
+            // If all the validations pass, return true
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <!-- Add your navigation bar here with options like Home, Our Package, and Call Us -->
+        </div>
+        <div class="content">
+            <div class="left">
+                <h1>Top Rated E-Groceries Shop in Indonesian</h1>
+                <h2>Every Day with best ingredients</h2>
+                <img src="people.png" alt="People" width="200">
+                <p>"setiap hari beli sayur buah yang fresh disini"</p>
+                <p>Florence Hughes</p>
+                <ul>
+                    <li>Your first feature written in form of benefit statement</li>
+                    <li>Your second feature written in form of benefit statement</li>
+                    <li>Your third feature written in form of benefit statement</li>
+                </ul>
+            </div>
+            <div class="right">
+                <h3>Contact Us</h3>
+                <p>Sales: salam menghubungi anda 1x24 jam setelah data kami terima.</p>
+                <form action="submit.php" method="post" onsubmit="return validateForm()">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    <label for="interest">What are you interested in?</label>
+                    <select id="interest" name="interest">
+                        <option value="">Select an option</option>
+                        <option value="package1">Package 1</option>
+                        <option value="package2">Package 2</option>
+                        <option value="package3">Package 3</option>
+                    </select>
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+                    <input type="submit" value="SEND">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
